@@ -131,7 +131,7 @@ void_scepter = Weapon(name="Void Scepter",
                     crit_chance=0.15,
                     crit_multiplier=1.7)
 
-fire_breath = Weapon(name="Flail",
+fire_breath = Weapon(name="Fire Breath",
                     weapon_type="Magic",
                     damage=[10,13],
                     value=100,
