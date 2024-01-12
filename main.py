@@ -7,8 +7,6 @@ from levels import *
 from enemies import *
 from config import *
 
-PAUSE_DURATION = 0.5
-
 def get_random_enemy(level):
     enemies = level.enemies
     enemy = random.choice(enemies)

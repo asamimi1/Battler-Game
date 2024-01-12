@@ -13,7 +13,7 @@ class EnemyType():
         self.boss = boss
 
 boar = EnemyType(name="Boar",
-                    boss = True,
+                    boss = False,
                     health=60,
                     strength=3,
                     resists=[],
@@ -21,7 +21,7 @@ boar = EnemyType(name="Boar",
                     weapon=[claws])
 
 goblin = EnemyType(name="Goblin",
-                    boss = True,
+                    boss = False,
                     health=75,
                     strength=4,
                     resists=["Blunt"],
