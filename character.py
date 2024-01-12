@@ -90,10 +90,11 @@ class Hero(Character):
         self.inventory.reset_inventory()
 
 class Enemy(Character):
-    def __init__(self, name: str, health: int, weapon, strength: int, weakness: list, resists: list) -> None:
+    def __init__(self, name: str, health: int, weapon, strength: int, weakness: list, resists: list, boss: bool) -> None:
         super().__init__(name=name, health=health, strength=strength, weakness=weakness, resists=resists)
         self.weapon = weapon
         self.strength = strength
         self.weakness = weakness
         self.resists = resists
         self.health_bar = HealthBar(self, color="red")
+        self.boss = boss

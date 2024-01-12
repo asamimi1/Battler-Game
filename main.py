@@ -60,7 +60,7 @@ def main():
 
         hero.health = hero.health_max
         enemy, enemy_weapon = get_random_enemy(level)
-        enemy = Enemy(name=enemy.name, health=enemy.health, weapon=enemy_weapon, strength=enemy.strength, weakness=list(enemy.weakness), resists=list(enemy.resists))
+        enemy = Enemy(name=enemy.name, health=enemy.health, weapon=enemy_weapon, strength=enemy.strength, weakness=list(enemy.weakness), resists=list(enemy.resists), boss=bool(enemy.boss))
 
         if enemy.name[0] in ["a", "e", "i", "o", "u"]:
             article = "an"
@@ -88,6 +88,10 @@ def main():
                     break
 
             battle_counter += 1
+
+            if enemy.boss == True:
+                battle_counter = 3
+
             if battle_counter == 3:
                 clear_screen()
                 hero.level_up()
