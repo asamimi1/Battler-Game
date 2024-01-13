@@ -85,16 +85,20 @@ def main():
                 if replay.lower() not in ["y", "yes", ""]:
                     break
 
-            battle_counter += 1
-
-            if enemy.boss == True:
-                battle_counter = 3
-
-            if battle_counter == 3:
-                clear_screen()
-                hero.level_up()
-                current_level += 1
+            if enemy.boss == True: # Check if enemy is boss
+                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]")
+                hero.reset_to_default()
+                current_level = 0
                 battle_counter = 0
+                
+            else:
+                battle_counter += 1
+
+                if battle_counter == 3:
+                    clear_screen()
+                    hero.level_up()
+                    current_level += 1
+                    battle_counter = 0
 
         else:
             replay = input(f"GAME OVER! Try again?\n['Yes' or 'No']\n")
