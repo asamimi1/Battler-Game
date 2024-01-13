@@ -9,7 +9,7 @@ class Character:
         self.name = name
         self.health = health
         self.health_max = health
-        self.weapon = bronze_sword
+        self.weapon = DEFAULT_PLAYER_WEAPON
         self.strength = strength
         self.weakness = weakness
         self.resists = resists

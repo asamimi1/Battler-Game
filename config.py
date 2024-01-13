@@ -1,9 +1,11 @@
 import os
+from weapons import *
 
 PAUSE_DURATION = 0.5
 MAX_CAPACITY = 5
 DEFAULT_PLAYER_HEALTH = 100
 DEFAULT_PLAYER_STRENGTH = 5
+DEFAULT_PLAYER_WEAPON = bronze_sword
 
 gold = 0
 
