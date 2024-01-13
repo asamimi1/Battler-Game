@@ -1,6 +1,7 @@
 import os
 
 PAUSE_DURATION = 0.5
+MAX_CAPACITY = 5
 
 gold = 0
 

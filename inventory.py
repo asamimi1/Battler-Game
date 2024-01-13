@@ -1,7 +1,6 @@
 from character import *
 from config import *
 
-MAX_CAPACITY = 5
 
 class Inventory():
     def __init__ (self, max_capacity=MAX_CAPACITY):
