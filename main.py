@@ -42,7 +42,7 @@ def main():
     name = input("Hello, what is your name?\n[Please enter your name.]\n")
     if name.replace(" ", "") == "":
         name = "Hero"
-    hero = Hero(name=name.title(), health=100, strength=5, weakness=[], resists=[])
+    hero = Hero(name=name.title(), health=DEFAULT_PLAYER_HEALTH, strength=DEFAULT_PLAYER_STRENGTH, weakness=[], resists=[])
 
     current_level = 0
     battle_counter = 0

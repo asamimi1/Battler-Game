@@ -1,6 +1,6 @@
 from weapons import *
 from health_bar import *
-from inventory import *
+from inventory import Inventory
 from config import *
 
 class Character:
