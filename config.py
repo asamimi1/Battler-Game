@@ -6,8 +6,7 @@ MAX_CAPACITY = 5
 DEFAULT_PLAYER_HEALTH = 100
 DEFAULT_PLAYER_STRENGTH = 5
 DEFAULT_PLAYER_WEAPON = bronze_sword
-
-gold = 0
+DEFAULT_GOLD = 100
 
 colors = {
     'reset': '\033[0m',

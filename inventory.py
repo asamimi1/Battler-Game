@@ -33,11 +33,11 @@ class Inventory():
                 for num, item in enumerate(self.items, start=1):
 
                     if item.name == hero.weapon.name:
-                        equipped = "[EQUIPPED]"
+                        equipped = f"{colors['yellow']}[EQUIPPED]{colors['reset']}"
                     else:
                         equipped = ""
 
-                    lined_item=(f"{colors['yellow']}{num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%) {equipped}{colors['reset']}")
+                    lined_item=(f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%) {equipped}")
                     print(lined_item)
 
                 user_input = input("Select weapon for settings? '0' to exit.\n")
@@ -49,12 +49,9 @@ class Inventory():
                     case str(num)  if user_input.isdigit() and (num := int(user_input)) in range(1, len(self.items) + 1):
                         clear_screen()
                         item_listed = self.items[num - 1]
-                        lined_item = f"{colors['yellow']}Item:\n{item_listed.name} (Damage: {item_listed.damage}, Type: {item_listed.weapon_type}, Crit Chance: {item_listed.crit_chance*10}%) {equipped}{colors['reset']}"
+                        lined_item = f"{colors['yellow']}Item:\n {colors['reset']}{item_listed.name} (Damage: {item_listed.damage}, Type: {item_listed.weapon_type}, Crit Chance: {item_listed.crit_chance*10}%) {equipped}"
                         weapon_input = input(f"{lined_item}\n[Press '1' to equip weapon, '2' to drop weapon, press '0' to exit.]\n")
                         match weapon_input:
-                            case "0":
-                                input(exit)
-                                break
                             case "1":
                                 hero.equip(self.items[num - 1])
                             case "2":

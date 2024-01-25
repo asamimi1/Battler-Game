@@ -1,6 +1,7 @@
 from weapons import *
 from health_bar import *
 from inventory import Inventory
+from shop import *
 from config import *
 
 class Character:
@@ -50,6 +51,7 @@ class Hero(Character):
         self.health_bar = HealthBar(self, color="green")
         self.default_gold = gold
         self.gold = gold
+        self.shop = Shop()
         
     def add_to_inventory(self, item):
         while True:
@@ -80,16 +82,34 @@ class Hero(Character):
         input(f"{colors['red']}{self.name} dropped {self.weapon.name}!{colors['reset']}\n[Press Enter to Continue]\n")
         self.weapon = self.default_weapon
 
-    def sell_item(self, item):
-        return
-    
-    def buy_item(self, item):
-        return
-
     def level_up(self) -> None:
         self.strength += 2
         self.health_max += 15
         input(f"{self.name} \033[93mleveled up!\033[0m You gained +15 HP +2 Strength!\n[Press Enter to Continue]\n")
+
+    def buy_from_shop(self, item):
+        if len(self.inventory.items) < self.inventory.max_capacity and self.gold >= item.value:
+            self.inventory.items.append(item)
+            self.gold -= item.value
+            return True
+        else:
+            return False
+
+    def open_shop(self):
+        while True:
+            clear_screen()
+            print(f"{colors['cyan']}Welcome to the shop, {self.name}!{colors['reset']}")
+            print(f"{colors['yellow']}Gold: {self.gold}{colors['reset']}")
+
+            choice = input("[1. Buy Items, 2. Sell Items, 0. Exit]\n")
+
+            if choice == "1":
+                self.shop.buy_from_shop(self)
+            elif choice == "2":
+                self.shop.sell_to_shop(self)
+            else:
+                input(f"{colors['cyan']}Exiting Shop.{colors['reset']}\n[Press Enter to Continue]\n")
+                break
 
     def reset_to_default(self) -> None:
         self.health = self.default_health

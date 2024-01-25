@@ -36,14 +36,14 @@ def run_battle(hero, enemy):
         time.sleep(PAUSE_DURATION)
 
 def display_stats(hero):
-    return f"\n{colors['cyan']}{hero.name.title()} Stats:{colors['reset']}\n Health: {hero.health_max}\n Strength: {hero.strength}\n Weapon: {hero.weapon.name} (Damage: {hero.weapon.damage}, Type: {hero.weapon.weapon_type}, Crit Chance: {hero.weapon.crit_chance*10}%)\n Gold: {hero.gold}"
+    return f"\n{colors['cyan']}{hero.name.title()} Stats:{colors['reset']}\n Health: {hero.health_max}\n Strength: {hero.strength}\n Weapon: {hero.weapon.name} (Damage: {hero.weapon.damage}, Type: {hero.weapon.weapon_type}, Crit Chance: {hero.weapon.crit_chance*10}%)\n{colors['yellow']}Gold: {hero.gold}{colors['reset']}"
 
 def main():
     clear_screen()
     name = input("Hello, what is your name?\n[Please enter your name.]\n")
     if name.replace(" ", "") == "":
         name = "Hero"
-    hero = Hero(name=name.title(), health=DEFAULT_PLAYER_HEALTH, strength=DEFAULT_PLAYER_STRENGTH, weakness=[], resists=[], gold=0)
+    hero = Hero(name=name.title(), health=DEFAULT_PLAYER_HEALTH, strength=DEFAULT_PLAYER_STRENGTH, weakness=[], resists=[], gold=DEFAULT_GOLD)
 
     current_level = 0
     battle_counter = 0
@@ -54,7 +54,11 @@ def main():
         stats = display_stats(hero)
         if battle_counter == 0:
             level_description = level.get_description(hero.name)
-            input(f"{level_description}\n[Press Enter to continue]\n")
+            user_input = input(f"{level_description}\nWould you like to access shop?\n[1. Open Shop, 2. Continue]\n")
+
+            if user_input == "1":
+                hero.open_shop()
+
         clear_screen()
 
         hero.health = hero.health_max
@@ -66,13 +70,13 @@ def main():
         else:
             article = "a"
 
-        user_input = input(f"{hero.name} encountered {article} {colors['red']}{enemy.name}{colors['reset']}:\n Health: {enemy.health}\n Strength: {enemy.strength}\n Weapon: {enemy.weapon.name} (Damage: {enemy.weapon.damage}, Type: {enemy.weapon.weapon_type}).{stats}\n[1. Open Inventory, 2. Continue]\n")
+        enemy_stats = f"\n{colors['red']}{enemy.name} Stats:{colors['reset']}\n Health: {enemy.health}\n Strength: {enemy.strength}\n Weapon: {enemy.weapon.name} (Damage: {enemy.weapon.damage}, Type: {enemy.weapon.weapon_type})."
+        user_input = input(f"{hero.name} encountered {article} {colors['red']}{enemy.name}{colors['reset']}:{enemy_stats}{stats}\n[1. Open Inventory, 2. Continue]\n")
 
         if user_input == "1":
             hero.display_inventory()
-            run_battle(hero, enemy)
-        else:
-            run_battle(hero, enemy)
+
+        run_battle(hero, enemy)
 
         if hero.health > 0:
             replay = input(f"{colors['cyan']}{hero.name} defeated the {enemy.name}! {colors['yellow']}{enemy.gold} gold added to inventory!\n{colors['reset']}[Press Enter to Continue]\n")
@@ -88,7 +92,7 @@ def main():
                     break
 
             if enemy.boss == True: # Check if enemy is boss
-                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]")
+                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]\n")
                 hero.reset_to_default()
                 current_level = 0
                 battle_counter = 0
