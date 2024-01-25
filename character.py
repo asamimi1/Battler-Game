@@ -40,13 +40,16 @@ class Character:
             print(f"{self.name} dealt {round(damage_dealt)} damage to {target.name}" + modifier + f" with {self.weapon.name}!")
 
 class Hero(Character):
-    def __init__(self, name: str, health: int, strength: int, weakness: list, resists: list) -> None:
+
+    def __init__(self, name: str, health: int, strength: int, weakness: list, resists: list, gold: int) -> None:
         super().__init__(name=name, health=health, strength=strength, weakness=weakness, resists=resists)
 
         self.default_weapon = self.weapon
         self.default_strength = strength
         self.default_health = health
         self.health_bar = HealthBar(self, color="green")
+        self.default_gold = gold
+        self.gold = gold
         
     def add_to_inventory(self, item):
         while True:
@@ -77,6 +80,12 @@ class Hero(Character):
         input(f"{colors['red']}{self.name} dropped {self.weapon.name}!{colors['reset']}\n[Press Enter to Continue]\n")
         self.weapon = self.default_weapon
 
+    def sell_item(self, item):
+        return
+    
+    def buy_item(self, item):
+        return
+
     def level_up(self) -> None:
         self.strength += 2
         self.health_max += 15
@@ -88,13 +97,16 @@ class Hero(Character):
         self.weapon = self.default_weapon
         self.strength = self.default_strength
         self.inventory.reset_inventory()
+        self.gold = self.default_gold
 
 class Enemy(Character):
-    def __init__(self, name: str, health: int, weapon, strength: int, weakness: list, resists: list, boss: bool) -> None:
+    
+    def __init__(self, name: str, health: int, weapon, strength: int, weakness: list, resists: list, gold: list, boss: bool) -> None:
         super().__init__(name=name, health=health, strength=strength, weakness=weakness, resists=resists)
         self.weapon = weapon
         self.strength = strength
         self.weakness = weakness
         self.resists = resists
         self.health_bar = HealthBar(self, color="red")
+        self.gold = gold
         self.boss = boss

@@ -3,13 +3,14 @@ from character import *
 from health_bar import *
 
 class EnemyType():
-    def __init__(self, name: str, health: int, strength: int, weapon: list, resists: list, weakness: list, boss: bool) -> None:
+    def __init__(self, name: str, health: int, strength: int, weapon: list, resists: list, gold: list, weakness: list, boss: bool) -> None:
         self.name = name
         self.strength = strength
         self.health = health
         self.weapon = weapon
         self.resists = resists
         self.weakness = weakness
+        self.gold = gold
         self.boss = boss
 
 boar = EnemyType(name="Boar",
@@ -18,6 +19,7 @@ boar = EnemyType(name="Boar",
                     strength=3,
                     resists=[],
                     weakness=["Sharp", "Ranged"],
+                    gold = [3, 5],
                     weapon=[claws])
 
 goblin = EnemyType(name="Goblin",
@@ -26,6 +28,7 @@ goblin = EnemyType(name="Goblin",
                     strength=4,
                     resists=["Blunt"],
                     weakness=["Sharp"],
+                    gold = [4, 6],
                     weapon=[fists, bronze_sword, iron_sword])
 
 giant_rat = EnemyType(name="Giant Rat",
@@ -34,6 +37,7 @@ giant_rat = EnemyType(name="Giant Rat",
                     strength=5,
                     resists=[],
                     weakness=["Sharp", "Ranged"],
+                    gold = [5, 7],
                     weapon=[claws])
         
 skeleton = EnemyType(name="Skeleton",
@@ -42,6 +46,7 @@ skeleton = EnemyType(name="Skeleton",
                     strength=3,
                     resists=["Sharp", "Ranged", "Magic"],
                     weakness=["Blunt"],
+                    gold = [6, 8],
                     weapon=[short_bow, flail, mace])
 
 orc = EnemyType(name="Orc",
@@ -50,6 +55,7 @@ orc = EnemyType(name="Orc",
                     strength=6,
                     resists=["Blunt"],
                     weakness=["Ranged"],
+                    gold = [8, 10],
                     weapon=[long_bow, mace, iron_sword, great_sword])
 
 wolf = EnemyType(name="Wolf",
@@ -58,6 +64,7 @@ wolf = EnemyType(name="Wolf",
                     strength=10,
                     resists=["Blunt"],
                     weakness=["Sharp", "Ranged"],
+                    gold = [7, 9],
                     weapon=[claws])
 
 giant_ooze = EnemyType(name="Giant Ooze",
@@ -66,6 +73,7 @@ giant_ooze = EnemyType(name="Giant Ooze",
                     strength=11,
                     resists=["Sharp", "Ranged"],
                     weakness=["Blunt", "Magic"],
+                    gold = [9, 12],
                     weapon=[spit])
 
 giant_spider = EnemyType(name="Giant Spider",
@@ -74,6 +82,7 @@ giant_spider = EnemyType(name="Giant Spider",
                     strength=14,
                     resists=["Blunt"],
                     weakness=["Sharp", "Magic"],
+                    gold = [8, 11],
                     weapon=[claws])
 
 swamp_zombie = EnemyType(name="Swamp Zombie",
@@ -82,6 +91,7 @@ swamp_zombie = EnemyType(name="Swamp Zombie",
                     strength=12,
                     resists=["Sharp", "Ranged"],
                     weakness=["Blunt", "Magic"],
+                    gold = [10, 12],
                     weapon=[pike, great_sword, long_bow])
 
 knight = EnemyType(name="Knight",
@@ -90,6 +100,7 @@ knight = EnemyType(name="Knight",
                     strength=14,
                     resists=["Sharp", "Ranged"],
                     weakness=["Blunt", "Magic"],
+                    gold = [12, 14],
                     weapon=[spiked_mace, barbarian_axe])
 
 dark_wizard = EnemyType(name="Dark Wizard",
@@ -98,6 +109,7 @@ dark_wizard = EnemyType(name="Dark Wizard",
                     strength=18,
                     resists=["Magic"],
                     weakness=["Sharp", "Ranged"],
+                    gold = [11, 13],
                     weapon=[ice_staff, void_scepter])
 
 dragon = EnemyType(name="Dragon",
@@ -106,4 +118,5 @@ dragon = EnemyType(name="Dragon",
                     strength=10,
                     resists=["Blunt", "Ranged", "Magic"],
                     weakness=[],
+                    gold = [50],
                     weapon=[fire_breath])
