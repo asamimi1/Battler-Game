@@ -92,7 +92,7 @@ def main():
                     break
 
             if enemy.boss == True: # Check if enemy is boss
-                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]\n")
+                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]")
                 hero.reset_to_default()
                 current_level = 0
                 battle_counter = 0

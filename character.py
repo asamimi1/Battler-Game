@@ -87,14 +87,6 @@ class Hero(Character):
         self.health_max += 15
         input(f"{self.name} \033[93mleveled up!\033[0m You gained +15 HP +2 Strength!\n[Press Enter to Continue]\n")
 
-    def buy_from_shop(self, item):
-        if len(self.inventory.items) < self.inventory.max_capacity and self.gold >= item.value:
-            self.inventory.items.append(item)
-            self.gold -= item.value
-            return True
-        else:
-            return False
-
     def open_shop(self):
         while True:
             clear_screen()

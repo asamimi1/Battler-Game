@@ -138,4 +138,4 @@ fire_breath = Weapon(name="Fire Breath",
                     crit_chance=0.30,
                     crit_multiplier=1.5)
 
-obtainable_weapons = [iron_sword, fire_wand, ice_staff, great_sword, daggers, pike, short_bow, long_bow, mace, flail, barbarian_axe, spiked_mace, void_scepter]
+vendor_items = [iron_sword, fire_wand, ice_staff, great_sword, daggers, pike, short_bow, long_bow, mace, flail, barbarian_axe, spiked_mace, void_scepter]

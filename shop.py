@@ -7,15 +7,16 @@ class Shop():
         self.max_capacity = max_capacity
         self.items = []
 
-    def get_weapons(self, max_items=10):
-        return random.sample(obtainable_weapons, max_items)
+    def get_weapons(self, hero, max_items=10):
+        available_weapons = [weapon for weapon in vendor_items if weapon not in hero.inventory.items]
+        return random.sample(available_weapons, min(max_items, len(available_weapons)))
 
     def buy_from_shop(self, hero):
         exit = f"{colors['cyan']}Exiting Buy Menu.{colors['reset']}\n[Press Enter to Continue]\n"
         clear_screen()
         print(f"{colors['yellow']}Shop Items:{colors['reset']}")
 
-        random_items = self.get_weapons()
+        random_items = self.get_weapons(hero)
 
         for num, item in enumerate(random_items, start=1):
             listed_value = math.ceil(item.value*1.25)
