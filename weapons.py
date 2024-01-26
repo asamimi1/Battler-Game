@@ -12,6 +12,9 @@ class Weapon:
     def calculate_damage(self) -> float:
         return random.choice(range(self.damage[0], self.damage[1]+1))
         
+
+# Enemy Specific Weapons
+
 fists = Weapon(name="Fists",
                     weapon_type="Blunt",
                     damage=[2,5],
@@ -32,6 +35,15 @@ spit = Weapon(name="Spit",
                     value=0,
                     crit_chance=0.15,
                     crit_multiplier=1.3)
+
+fire_breath = Weapon(name="Fire Breath",
+                    weapon_type="Magic",
+                    damage=[10,13],
+                    value=100,
+                    crit_chance=0.30,
+                    crit_multiplier=1.5)
+
+# Enemy and Level Weapons
 
 bronze_sword = Weapon(name="Bronze Sword",
                     weapon_type="Sharp",
@@ -131,11 +143,10 @@ void_scepter = Weapon(name="Void Scepter",
                     crit_chance=0.15,
                     crit_multiplier=1.7)
 
-fire_breath = Weapon(name="Fire Breath",
-                    weapon_type="Magic",
-                    damage=[10,13],
-                    value=100,
-                    crit_chance=0.30,
-                    crit_multiplier=1.5)
+# Vendor Specific Weapons
+
+
+
+
 
 vendor_items = [iron_sword, fire_wand, ice_staff, great_sword, daggers, pike, short_bow, long_bow, mace, flail, barbarian_axe, spiked_mace, void_scepter]

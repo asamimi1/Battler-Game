@@ -14,13 +14,13 @@ class Shop():
     def buy_from_shop(self, hero):
         exit = f"{colors['cyan']}Exiting Buy Menu.{colors['reset']}\n[Press Enter to Continue]\n"
         clear_screen()
-        print(f"{colors['yellow']}Shop Items:{colors['reset']}")
+        print(f"{colors['yellow']}Shop Items:\n(You have {hero.gold} gold){colors['reset']}")
 
         random_items = self.get_weapons(hero)
 
         for num, item in enumerate(random_items, start=1):
             listed_value = math.ceil(item.value*1.25)
-            lined_item = f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%, Value: {listed_value})"
+            lined_item = f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%, Price: {listed_value} gold)"
             print(lined_item)
 
         user_input = input("Select an item to buy. '0' to exit.\n")
@@ -29,10 +29,12 @@ class Shop():
             clear_screen()
             item_to_buy = random_items[num - 1]
 
-            if hero.gold >= item_to_buy.value:
+            calculated_price = math.ceil(item_to_buy.value * 1.25)
+
+            if hero.gold >= calculated_price and hero.gold - calculated_price >= 0:
                 if len(hero.inventory.items) < hero.inventory.max_capacity:
-                    input(f"{colors['cyan']}{hero.name} bought {item_to_buy.name} for {listed_value} gold.{colors['reset']}")
-                    hero.gold -= listed_value
+                    input(f"{colors['cyan']}{hero.name} bought {item_to_buy.name} for {calculated_price} gold.{colors['reset']}")
+                    hero.gold -= calculated_price
                     hero.add_to_inventory(item_to_buy)
                 else:
                     input(f"{colors['red']}Inventory is Full! Cannot buy {item_to_buy.name}. Please sell an item.{colors['reset']}\n[Press Enter to Continue]\n")
@@ -59,7 +61,7 @@ class Shop():
                 else:
                     equipped = ""
 
-                lined_item=(f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%) {equipped}")
+                lined_item=(f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%), Sell Value: {item.value} gold {equipped}")
                 print(lined_item)
 
         user_input = input("Select an item to buy. '0' to exit.\n")
