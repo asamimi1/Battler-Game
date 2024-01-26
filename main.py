@@ -54,7 +54,7 @@ def main():
         stats = display_stats(hero)
         if battle_counter == 0:
             level_description = level.get_description(hero.name)
-            user_input = input(f"{level_description}\nWould you like to access shop?\n[1. Open Shop, 2. Continue]\n")
+            user_input = input(f"{level_description} Would you like to access the Shop?\n[1. Open Shop, 2. Continue]\n")
 
             if user_input == "1":
                 hero.open_shop()
@@ -100,7 +100,7 @@ def main():
             else:
                 battle_counter += 1
 
-                if battle_counter == 3:
+                if battle_counter == MAX_COUNTER:
                     clear_screen()
                     hero.level_up()
                     current_level += 1

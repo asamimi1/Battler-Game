@@ -13,6 +13,8 @@ class EnemyType():
         self.gold = gold
         self.boss = boss
 
+#Forest Enemies
+        
 boar = EnemyType(name="Boar",
                     boss = False,
                     health=60,
@@ -29,7 +31,18 @@ goblin = EnemyType(name="Goblin",
                     resists=["Blunt"],
                     weakness=["Sharp"],
                     gold = [4, 6],
-                    weapon=[fists, bronze_sword, iron_sword])
+                    weapon=[fists, bronze_sword])
+
+bandit = EnemyType(name="Bandit",
+                    boss = False,
+                    health=80,
+                    strength=3,
+                    resists=[""],
+                    weakness=["Sharp", "Ranged"],
+                    gold = [4, 6],
+                    weapon=[bronze_sword])
+
+#Cave Enemies
 
 giant_rat = EnemyType(name="Giant Rat",
                     boss = False,
@@ -37,6 +50,15 @@ giant_rat = EnemyType(name="Giant Rat",
                     strength=5,
                     resists=[],
                     weakness=["Sharp", "Ranged"],
+                    gold = [5, 7],
+                    weapon=[claws])
+
+bat = EnemyType(name="Bat",
+                    boss = False,
+                    health=120,
+                    strength=6,
+                    resists=[],
+                    weakness=["Sharp", "Ranged", "Magic"],
                     gold = [5, 7],
                     weapon=[claws])
         
@@ -48,6 +70,8 @@ skeleton = EnemyType(name="Skeleton",
                     weakness=["Blunt"],
                     gold = [6, 8],
                     weapon=[short_bow, flail, mace])
+
+#Plains Enemies
 
 orc = EnemyType(name="Orc",
                     boss = False,
@@ -66,6 +90,17 @@ wolf = EnemyType(name="Wolf",
                     weakness=["Sharp", "Ranged"],
                     gold = [7, 9],
                     weapon=[claws])
+
+troll = EnemyType(name="Troll",
+                    boss = False,
+                    health=150,
+                    strength=8,
+                    resists=["Sharp"],
+                    weakness=["Magic", "Ranged"],
+                    gold = [9, 11],
+                    weapon=[war_pick, great_sword])
+
+#Swamp Enemies
 
 giant_ooze = EnemyType(name="Giant Ooze",
                     boss = False,
@@ -92,7 +127,9 @@ swamp_zombie = EnemyType(name="Swamp Zombie",
                     resists=["Sharp", "Ranged"],
                     weakness=["Blunt", "Magic"],
                     gold = [10, 12],
-                    weapon=[pike, great_sword, long_bow])
+                    weapon=[pike, long_bow, battle_axe])
+
+#Castle Enemies
 
 knight = EnemyType(name="Knight",
                     boss = False,
@@ -111,6 +148,17 @@ dark_wizard = EnemyType(name="Dark Wizard",
                     weakness=["Sharp", "Ranged"],
                     gold = [11, 13],
                     weapon=[ice_staff, void_scepter])
+
+armored_soldier = EnemyType(name="Armored Soldier",
+                    boss = False,
+                    health=160,
+                    strength=13,
+                    resists=["Magic", "Sharp"],
+                    weakness=["Blunt"],
+                    gold = [11, 13],
+                    weapon=[curved_sword, spiked_mace])
+
+#Final Boss
 
 dragon = EnemyType(name="Dragon",
                     boss = True,

@@ -23,7 +23,7 @@ class Shop():
             lined_item = f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%, Price: {listed_value} gold)"
             print(lined_item)
 
-        user_input = input("Select an item to buy. '0' to exit.\n")
+        user_input = input("[Select an item to buy. '0' to exit]\n")
 
         if user_input.isdigit() and 1 <= (num := int(user_input)) <= len(random_items):
             clear_screen()

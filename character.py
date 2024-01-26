@@ -90,7 +90,7 @@ class Hero(Character):
     def open_shop(self):
         while True:
             clear_screen()
-            print(f"{colors['cyan']}Welcome to the shop, {self.name}!{colors['reset']}")
+            print(f"{colors['cyan']}Welcome to the Shop, {self.name}!{colors['reset']}")
             print(f"{colors['yellow']}Gold: {self.gold}{colors['reset']}")
 
             choice = input("[1. Buy Items, 2. Sell Items, 0. Exit]\n")
