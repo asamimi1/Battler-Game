@@ -6,6 +6,7 @@ from weapons import *
 from levels import *
 from enemies import *
 from config import *
+import sys
 
 def get_random_enemy(level):
     enemies = level.enemies
@@ -40,7 +41,7 @@ def display_stats(hero):
 
 def main():
     clear_screen()
-    name = input("Hello, what is your name?\n[Please enter your name.]\n")
+    name = input("Hello, what is your name?\n[Please enter your name]\n")
     if name.replace(" ", "") == "":
         name = "Hero"
     hero = Hero(name=name.title(), health=DEFAULT_PLAYER_HEALTH, strength=DEFAULT_PLAYER_STRENGTH, weakness=[], resists=[], gold=DEFAULT_GOLD)
@@ -92,11 +93,14 @@ def main():
                     break
 
             if enemy.boss == True: # Check if enemy is boss
-                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue]")
+                input(f"{colors['green']}YOU WIN!{colors['reset']} Play again?\n[Press Enter to Continue. 'Q' to Quit.]")
+
+                if user_input.lower() in ["q", "Q"]:
+                    sys.exit()
+                
                 hero.reset_to_default()
                 current_level = 0
                 battle_counter = 0
-                
             else:
                 battle_counter += 1
 
@@ -109,7 +113,7 @@ def main():
         else:
             replay = input(f"GAME OVER! Try again?\n['Yes' or 'No']\n")
             if replay.lower() not in ["y", "yes", ""]:
-                break
+                sys.exit()
             else:
                 hero.reset_to_default()
             current_level = 0

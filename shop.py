@@ -19,7 +19,7 @@ class Shop():
         random_items = self.get_weapons(hero)
 
         for num, item in enumerate(random_items, start=1):
-            listed_value = math.ceil(item.value*1.25)
+            listed_value = math.ceil(item.value*1.5)
             lined_item = f" {num}. {item.name} (Damage: {item.damage}, Type: {item.weapon_type}, Crit Chance: {item.crit_chance*10}%, Price: {listed_value} gold)"
             print(lined_item)
 
@@ -29,7 +29,7 @@ class Shop():
             clear_screen()
             item_to_buy = random_items[num - 1]
 
-            calculated_price = math.ceil(item_to_buy.value * 1.25)
+            calculated_price = math.ceil(item_to_buy.value*1.5)
 
             if hero.gold >= calculated_price and hero.gold - calculated_price >= 0:
                 if len(hero.inventory.items) < hero.inventory.max_capacity:
