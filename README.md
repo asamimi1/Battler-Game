@@ -1,6 +1,6 @@
 ﻿# Battler-Game
 
- This project is a small little mini-game put together to practice OOP. <br>
+ This project is a small little mini-game put together to practice OOP in Python. <br>
 
 • Run from main.py: `python main.py` <br>
 • Goal is to complete the game by defeating each encounter. <br>
