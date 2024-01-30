@@ -10,4 +10,10 @@
 
 ## Example Usage
 
-`python main.py`
+```bash
+python main.py
+
+Hello, what is your name?
+[Please enter your name] 
+Aarash
+```
