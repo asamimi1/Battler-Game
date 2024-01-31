@@ -14,7 +14,7 @@
 
 ## Example Usage
 
-```bash
+```
 python main.py
 
 Hello, what is your name?
